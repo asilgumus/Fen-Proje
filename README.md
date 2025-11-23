@@ -1,4 +1,4 @@
-# Project Repository
+# Fen Proje
 
 This repository contains a simple web project consisting of HTML, CSS, and JavaScript files. The project includes the following files:
 
