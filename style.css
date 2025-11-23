@@ -1,0 +1,30 @@
+/* Variables */
+:root {
+  --primary-color: #333;
+  --font-size-base: 16px;
+}
+
+/* Header component */
+.header {
+  background-color: var(--primary-color);
+  padding: 20px;
+}
+
+.header__logo {
+  font-size: var(--font-size-base);
+  font-weight: bold;
+}
+
+/* Button component */
+.button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}

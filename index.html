@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+        }
+        #quiz-container {
+            max-width: 800px;
+            background-color: #222;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1s;
+        }
+        #question {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s 0.5s forwards;
+        }
+        .option-btn {
+            background-color: #4caf50;
+            border-color: #4caf50;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 20px;
+            margin: 10px;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s;
+        }
+        .option-btn:hover {
+            background-color: #388e3c;
+            border-color: #388e3c;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        #next-button {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 10px 30px;
+            margin-top: 30px;
+            background-color: #ff6b6b;
+            border-color: #ff6b6b;
+        }
+        #result-container {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInUp 0.5s forwards;
+        }
+        #result-header {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+        .correct {
+            color: #4caf50;
+        }
+        .incorrect {
+            color: #f44336;
+        }
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quiz-container" class="container mt-5">
+        <h1 id="question" class="mb-4"></h1>
+        <div id="timer"></div>
+        <div id="result-container" class="mt-4 text-center">
+            <h2 id="result-header"></h2>
+            <p id="result-message"></p>
+            <ul id="result-details" class="list-unstyled"></ul>
+        </div>
+        <div id="options-container" class="d-flex flex-wrap justify-content-center"></div>
+        <div class="text-center">
+            <button id="next-button" class="btn btn-primary">Next</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <label class="switch">
+        <input type="checkbox" id="gecisButonu">
+        <span class="slider round"></span>
+      </label>
+      
+      <!-- İlgili CSS -->
+      <style>
+        .switch {
+          position: absolute;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+          top: 0px;
+          left: 96%
+        }
+      
+        .switch input { 
+          display: none;
+        }
+      
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 34px;
+        }
+      
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+      
+        input:checked + .slider {
+          background-color: rgb(68, 68, 68);
+          transition: background-color 0.4s;
+        }
+      
+        input:checked + .slider:before {
+          transform: translateX(26px);
+          background-color: black;
+          transition: transform 0.4s, background-color 0.4s;
+        }
+      
+        .slider.round {
+          border-radius: 34px;
+        }
+      
+        .slider.round:before {
+          border-radius: 50%;
+        }
+      
+        /* Arka plan rengi için CSS */
+        body {
+          transition: background-color 0.4s;
+        }
+      
+        body.arka-plan-beyaz {
+          background-color: black;
+          color: white;
+        }
+      </style>
+      
+      <!-- JavaScript -->
+      <script>
+        // Butona tıklandığında arka plan rengini değiştirme fonksiyonu
+        document.getElementById("gecisButonu").addEventListener("click", function() {
+          var body = document.body;
+          body.classList.toggle('arka-plan-beyaz');
+        });
+      </script>
+      
+</body>
+</html>
